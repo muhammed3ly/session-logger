@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "397639054005",
+    "firebase_url": "https://sessions-logger.firebaseio.com",
+    "project_id": "sessions-logger",
+    "storage_bucket": "sessions-logger.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:397639054005:android:92441ffdd10e0f132584fc",
+        "android_client_info": {
+          "package_name": "com.example.sessions_logger"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "397639054005-ie8fb181pk518c157dffb02bgpnfrhhb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAv4ygX0PGn9Jg-xk6ELppSL6CgbqtR_4E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "397639054005-ie8fb181pk518c157dffb02bgpnfrhhb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
