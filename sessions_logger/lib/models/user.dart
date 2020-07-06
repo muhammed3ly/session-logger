@@ -1,4 +1,7 @@
 class User {
-  final String userName, userID;
-  User(this.userName, this.userID);
+  final String email, userID;
+  String username;
+  User(this.email, this.userID) {
+    username = email.split('@')[0];
+  }
 }

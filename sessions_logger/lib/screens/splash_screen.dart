@@ -7,8 +7,15 @@ class SplashScreen extends StatelessWidget {
       backgroundColor: Theme.of(context).primaryColor,
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            CircularProgressIndicator(),
+            CircularProgressIndicator(
+              valueColor: new AlwaysStoppedAnimation<Color>(Colors.white),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.02,
+            ),
             Text(
               'Loading...',
               style: TextStyle(

@@ -67,7 +67,6 @@ class _RegisterCardState extends State<RegisterCard> {
             content: Text(
               error.message,
               style: TextStyle(
-                fontFamily: 'Century',
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
               ),
@@ -84,7 +83,6 @@ class _RegisterCardState extends State<RegisterCard> {
             content: Text(
               error,
               style: TextStyle(
-                fontFamily: 'Century',
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
               ),
@@ -121,7 +119,6 @@ class _RegisterCardState extends State<RegisterCard> {
                       child: Text(
                         'REGISTER',
                         style: TextStyle(
-                          fontFamily: 'Century',
                           fontSize: 20 * MediaQuery.of(context).textScaleFactor,
                           color: Theme.of(context).primaryColor,
                         ),
@@ -142,7 +139,6 @@ class _RegisterCardState extends State<RegisterCard> {
                         return null;
                       },
                       style: TextStyle(
-                        fontFamily: 'Century',
                         color: Theme.of(context).primaryColor,
                         fontSize: 14 * MediaQuery.of(context).textScaleFactor,
                       ),
@@ -158,7 +154,7 @@ class _RegisterCardState extends State<RegisterCard> {
                           horizontal: 6,
                         ),
                         filled: true,
-                        fillColor: Theme.of(context).accentColor,
+                        fillColor: Colors.white,
                         border: borderStyle,
                         enabledBorder: borderStyle,
                         errorBorder: borderStyle,
@@ -169,7 +165,6 @@ class _RegisterCardState extends State<RegisterCard> {
                         hintText: 'Email Address',
                         hintStyle: TextStyle(
                           color: Theme.of(context).primaryColor,
-                          fontFamily: 'Century',
                         ),
                       ),
                     ),
@@ -195,7 +190,6 @@ class _RegisterCardState extends State<RegisterCard> {
                       },
                       obscureText: true,
                       style: TextStyle(
-                        fontFamily: 'Century',
                         color: Theme.of(context).primaryColor,
                         fontSize: 14 * MediaQuery.of(context).textScaleFactor,
                       ),
@@ -211,7 +205,7 @@ class _RegisterCardState extends State<RegisterCard> {
                           horizontal: 6,
                         ),
                         filled: true,
-                        fillColor: Theme.of(context).accentColor,
+                        fillColor: Colors.white,
                         border: borderStyle,
                         enabledBorder: borderStyle,
                         errorBorder: borderStyle,
@@ -222,7 +216,6 @@ class _RegisterCardState extends State<RegisterCard> {
                         hintText: 'Password',
                         hintStyle: TextStyle(
                           color: Theme.of(context).primaryColor,
-                          fontFamily: 'Century',
                         ),
                       ),
                     ),
@@ -243,7 +236,6 @@ class _RegisterCardState extends State<RegisterCard> {
                       },
                       obscureText: true,
                       style: TextStyle(
-                        fontFamily: 'Century',
                         color: Theme.of(context).primaryColor,
                         fontSize: 14 * MediaQuery.of(context).textScaleFactor,
                       ),
@@ -259,7 +251,7 @@ class _RegisterCardState extends State<RegisterCard> {
                           horizontal: 6,
                         ),
                         filled: true,
-                        fillColor: Theme.of(context).accentColor,
+                        fillColor: Colors.white,
                         border: borderStyle,
                         enabledBorder: borderStyle,
                         errorBorder: borderStyle,
@@ -270,7 +262,6 @@ class _RegisterCardState extends State<RegisterCard> {
                         hintText: 'Confirm Password',
                         hintStyle: TextStyle(
                           color: Theme.of(context).primaryColor,
-                          fontFamily: 'Century',
                         ),
                       ),
                     ),
@@ -311,7 +302,6 @@ class _RegisterCardState extends State<RegisterCard> {
                               'Already have an account?',
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                fontFamily: 'Century',
                                 color: Colors.grey,
                               ),
                             ),
@@ -321,7 +311,6 @@ class _RegisterCardState extends State<RegisterCard> {
                               ' Login Now!',
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                fontFamily: 'Century',
                                 fontWeight: FontWeight.bold,
                                 color: Theme.of(context).primaryColor,
                               ),

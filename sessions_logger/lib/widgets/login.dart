@@ -2,9 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:provider/provider.dart';
-import 'package:sessions_logger/models/user.dart';
-import 'package:sessions_logger/providers/users_provider.dart';
 
 class LoginCard extends StatefulWidget {
   final Function _flip;
@@ -66,7 +63,6 @@ class _LoginCardState extends State<LoginCard> {
             content: Text(
               error.message,
               style: TextStyle(
-                fontFamily: 'Century',
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
               ),
@@ -83,7 +79,6 @@ class _LoginCardState extends State<LoginCard> {
             content: Text(
               error,
               style: TextStyle(
-                fontFamily: 'Century',
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
               ),
@@ -115,7 +110,6 @@ class _LoginCardState extends State<LoginCard> {
                   child: Text(
                     'LOGIN',
                     style: TextStyle(
-                      fontFamily: 'Century',
                       fontSize: 20 * MediaQuery.of(context).textScaleFactor,
                       color: Theme.of(context).primaryColor,
                     ),
@@ -136,7 +130,6 @@ class _LoginCardState extends State<LoginCard> {
                     return null;
                   },
                   style: TextStyle(
-                    fontFamily: 'Century',
                     color: Theme.of(context).primaryColor,
                     fontSize: 14 * MediaQuery.of(context).textScaleFactor,
                   ),
@@ -152,7 +145,7 @@ class _LoginCardState extends State<LoginCard> {
                       horizontal: 6,
                     ),
                     filled: true,
-                    fillColor: Theme.of(context).accentColor,
+                    fillColor: Colors.white,
                     border: borderStyle,
                     enabledBorder: borderStyle,
                     errorBorder: borderStyle,
@@ -163,7 +156,6 @@ class _LoginCardState extends State<LoginCard> {
                     hintText: 'Email Address',
                     hintStyle: TextStyle(
                       color: Theme.of(context).primaryColor,
-                      fontFamily: 'Century',
                     ),
                   ),
                 ),
@@ -186,7 +178,6 @@ class _LoginCardState extends State<LoginCard> {
                     return null;
                   },
                   style: TextStyle(
-                    fontFamily: 'Century',
                     color: Theme.of(context).primaryColor,
                     fontSize: 14 * MediaQuery.of(context).textScaleFactor,
                   ),
@@ -203,7 +194,7 @@ class _LoginCardState extends State<LoginCard> {
                       horizontal: 6,
                     ),
                     filled: true,
-                    fillColor: Theme.of(context).accentColor,
+                    fillColor: Colors.white,
                     border: borderStyle,
                     enabledBorder: borderStyle,
                     errorBorder: borderStyle,
@@ -214,7 +205,6 @@ class _LoginCardState extends State<LoginCard> {
                     hintText: 'Password',
                     hintStyle: TextStyle(
                       color: Theme.of(context).primaryColor,
-                      fontFamily: 'Century',
                     ),
                   ),
                 ),
@@ -255,7 +245,6 @@ class _LoginCardState extends State<LoginCard> {
                           'Don\'t have an account?',
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            fontFamily: 'Century',
                             color: Colors.grey,
                           ),
                         ),
@@ -265,7 +254,6 @@ class _LoginCardState extends State<LoginCard> {
                           ' Register Now!',
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            fontFamily: 'Century',
                             fontWeight: FontWeight.bold,
                             color: Theme.of(context).primaryColor,
                           ),
