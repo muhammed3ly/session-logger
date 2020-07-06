@@ -64,6 +64,9 @@ flutter:
     - family: Century
       fonts:
         - asset: assets/fonts/CenturyGothic400.ttf
+    - family: Galada
+      fonts:
+        - asset: assets/fonts/Galada-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
