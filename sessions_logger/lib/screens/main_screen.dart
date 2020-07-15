@@ -52,7 +52,8 @@ class _MainScreenState extends State<MainScreen> {
         userID,
         updateDB: false,
       );
-      Provider.of<GroupsProvider>(context, listen: false).fetchMyGroups(userID);
+      await Provider.of<GroupsProvider>(context, listen: false)
+          .fetchMyGroups(userID);
     } else {
       await Firestore.instance.collection('users').document(userID).setData({
         'username': Provider.of<UsersProvider>(context, listen: false)
