@@ -16,18 +16,18 @@ class Constants {
   static final lightPrimaryColor = MaterialColor(0xFF1E319D, lightColorMap);
 
   static const darkColorMap = const {
-    50: Color.fromRGBO(0, 0, 0, 0.1),
-    100: Color.fromRGBO(0, 0, 0, 0.2),
-    200: Color.fromRGBO(0, 0, 0, 0.3),
-    300: Color.fromRGBO(0, 0, 0, 0.4),
-    400: Color.fromRGBO(0, 0, 0, 0.5),
-    500: Color.fromRGBO(0, 0, 0, 0.6),
-    600: Color.fromRGBO(0, 0, 0, 0.7),
-    700: Color.fromRGBO(0, 0, 0, 0.8),
-    800: Color.fromRGBO(0, 0, 0, 0.9),
-    900: Color.fromRGBO(0, 0, 0, 1),
+    50: Color.fromRGBO(36, 42, 56, 0.1),
+    100: Color.fromRGBO(36, 42, 56, 0.2),
+    200: Color.fromRGBO(36, 42, 56, 0.3),
+    300: Color.fromRGBO(36, 42, 56, 0.4),
+    400: Color.fromRGBO(36, 42, 56, 0.5),
+    500: Color.fromRGBO(36, 42, 56, 0.6),
+    600: Color.fromRGBO(36, 42, 56, 0.7),
+    700: Color.fromRGBO(36, 42, 56, 0.8),
+    800: Color.fromRGBO(36, 42, 56, 0.9),
+    900: Color.fromRGBO(36, 42, 56, 1),
   };
-  static final darkPrimaryColor = MaterialColor(0xFF000000, darkColorMap);
+  static final darkPrimaryColor = MaterialColor(0xFF242A38, darkColorMap);
 
   static final ThemeData lightTheme = ThemeData(
     primarySwatch: lightPrimaryColor,
@@ -36,7 +36,7 @@ class Constants {
   );
 
   static final ThemeData darkTheme = ThemeData(
-    scaffoldBackgroundColor: Colors.black,
+    scaffoldBackgroundColor: darkPrimaryColor,
     primarySwatch: darkPrimaryColor,
     accentColor: Colors.white,
     fontFamily: 'Century',

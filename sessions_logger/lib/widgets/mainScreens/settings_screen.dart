@@ -5,8 +5,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:sessions_logger/providers/preferences.dart';
 import 'package:sessions_logger/providers/users_provider.dart';
-import 'package:sessions_logger/widgets/change_password_sheet.dart';
-import 'package:sessions_logger/widgets/settings_item.dart';
+import 'package:sessions_logger/widgets/settingsScreen/change_password_sheet.dart';
+import 'package:sessions_logger/widgets/settingsScreen/settings_item.dart';
 
 class SettingsScreen extends StatefulWidget {
   final Function loading;
@@ -87,9 +87,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
           });
     } else {
       try {
-        Navigator.of(context).pop();
         widget.loading();
-        Provider.of<UsersProvider>(context, listen: false)
+        await Provider.of<UsersProvider>(context, listen: false)
             .changePassword(password);
       } on PlatformException catch (error) {
         Scaffold.of(context).showSnackBar(
@@ -117,6 +116,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         );
       }
       widget.loading();
+      Navigator.of(context).pop();
     }
   }
 

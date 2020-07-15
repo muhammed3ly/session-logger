@@ -10,13 +10,18 @@ class UsersProvider extends ChangeNotifier {
     user = u;
   }
 
-  Future<void> changeUsername(String username) async {
-    await Firestore.instance.collection('users').document(user.userID).setData(
-      {
-        'username': username,
-      },
-      merge: true,
-    );
+  Future<void> changeUsername(String username, {bool updateDB = true}) async {
+    if (updateDB) {
+      await Firestore.instance
+          .collection('users')
+          .document(user.userID)
+          .setData(
+        {
+          'username': username,
+        },
+        merge: true,
+      );
+    }
     user.username = username;
     notifyListeners();
   }

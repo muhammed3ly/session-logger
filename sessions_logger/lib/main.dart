@@ -1,13 +1,14 @@
-import 'dart:convert';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sessions_logger/models/user.dart';
+import 'package:sessions_logger/providers/groups_provider.dart';
 import 'package:sessions_logger/providers/preferences.dart';
+import 'package:sessions_logger/providers/screen_provider.dart';
 import 'package:sessions_logger/providers/users_provider.dart';
 import 'package:sessions_logger/screens/authentcication_screen.dart';
+import 'package:sessions_logger/screens/create_group_screen.dart';
+import 'package:sessions_logger/screens/group_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'helpers/constants.dart';
@@ -26,7 +27,6 @@ void main() {
       _themePreference =
           theme == 'light' ? ThemePreference.Light : ThemePreference.Dark;
     }
-    print(_themePreference);
     runApp(
       ChangeNotifierProvider(
         create: (_) => Preferences(_themePreference, false),
@@ -42,6 +42,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => UsersProvider()),
+        ChangeNotifierProvider(create: (_) => GroupsProvider()),
+        ChangeNotifierProvider(create: (_) => ScreenProvider()),
       ],
       child: Consumer<Preferences>(
         builder: (_, preferencesProvider, __) => MaterialApp(
@@ -66,80 +68,18 @@ class MyApp extends StatelessWidget {
                       Provider.of<UsersProvider>(context, listen: false)
                               .setUser =
                           User(userSnapShot.data.email, userSnapShot.data.uid);
-                      return FutureBuilder(
-                          future: Firestore.instance
-                              .collection('users')
-                              .document(userSnapShot.data.uid)
-                              .get(),
-                          builder: (_, userDocSnapshot) {
-                            if (userDocSnapshot.connectionState ==
-                                ConnectionState.waiting) {
-                              return SplashScreen();
-                            }
-                            if (userDocSnapshot.data.data != null) {
-                              Provider.of<UsersProvider>(context, listen: false)
-                                  .user
-                                  .username = userDocSnapshot.data['username'];
-                              Provider.of<Preferences>(context, listen: false)
-                                  .setAutoAcceptInvitations(
-                                userDocSnapshot.data['autoAcceptInvitations'],
-                                Provider.of<UsersProvider>(context,
-                                        listen: false)
-                                    .user
-                                    .userID,
-                                updateDB: false,
-                              );
-                              print(userDocSnapshot.data['themePreference']);
-                              Provider.of<Preferences>(context, listen: false)
-                                  .setThemePreference(
-                                      (userDocSnapshot
-                                                  .data['themePreference'] ==
-                                              'light')
-                                          ? ThemePreference.Light
-                                          : ThemePreference.Dark,
-                                      userSnapShot.data.uid,
-                                      updateDB: false);
-                              return MainScreen();
-                            } else {
-                              print(Provider.of<Preferences>(context,
-                                      listen: false)
-                                  .themePreference);
-                              return FutureBuilder(
-                                future: Firestore.instance
-                                    .collection('users')
-                                    .document(userSnapShot.data.uid)
-                                    .setData({
-                                  'username': Provider.of<UsersProvider>(
-                                          context,
-                                          listen: false)
-                                      .user
-                                      .email
-                                      .split('@')[0],
-                                  'autoAcceptInvitations': false,
-                                  'themePreference': Provider.of<Preferences>(
-                                                  context,
-                                                  listen: false)
-                                              .themePreference ==
-                                          ThemePreference.Light
-                                      ? 'light'
-                                      : 'dark'
-                                }),
-                                builder: (_, snap) {
-                                  if (snap.connectionState ==
-                                      ConnectionState.waiting) {
-                                    return SplashScreen();
-                                  }
-                                  return MainScreen();
-                                },
-                              );
-                            }
-                          });
+                      return MainScreen();
                     } else {
                       return AuthenticationScreen();
                     }
                   });
             },
           ),
+          routes: {
+            SplashScreen.routeName: (ctx) => SplashScreen(),
+            CreateGroupScreen.routeName: (ctx) => CreateGroupScreen(),
+            GroupScreen.routeName: (ctx) => GroupScreen(),
+          },
         ),
       ),
     );

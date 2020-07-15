@@ -237,20 +237,18 @@ class _LoginCardState extends State<LoginCard> {
                   width: double.infinity,
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      FittedBox(
-                        child: Text(
+                  child: FittedBox(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
                           'Don\'t have an account?',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Colors.grey,
                           ),
                         ),
-                      ),
-                      FittedBox(
-                        child: Text(
+                        Text(
                           ' Register Now!',
                           textAlign: TextAlign.center,
                           style: TextStyle(
@@ -258,8 +256,8 @@ class _LoginCardState extends State<LoginCard> {
                             color: Theme.of(context).primaryColor,
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),

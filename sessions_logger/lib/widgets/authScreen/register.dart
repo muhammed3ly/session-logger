@@ -294,20 +294,18 @@ class _RegisterCardState extends State<RegisterCard> {
                       width: double.infinity,
                       padding: const EdgeInsets.symmetric(
                           horizontal: 10, vertical: 10),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          FittedBox(
-                            child: Text(
+                      child: FittedBox(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text(
                               'Already have an account?',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Colors.grey,
                               ),
                             ),
-                          ),
-                          FittedBox(
-                            child: Text(
+                            Text(
                               ' Login Now!',
                               textAlign: TextAlign.center,
                               style: TextStyle(
@@ -315,8 +313,8 @@ class _RegisterCardState extends State<RegisterCard> {
                                 color: Theme.of(context).primaryColor,
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),

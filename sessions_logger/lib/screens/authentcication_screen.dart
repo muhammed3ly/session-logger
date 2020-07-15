@@ -1,8 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:sessions_logger/widgets/login.dart';
-import 'package:sessions_logger/widgets/register.dart';
+import 'package:sessions_logger/widgets/authScreen/login.dart';
+import 'package:sessions_logger/widgets/authScreen/register.dart';
 
 enum AuthMode { Login, Register }
 

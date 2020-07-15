@@ -10,10 +10,19 @@ class ChangePasswordSheet extends StatefulWidget {
 }
 
 class _ChangePasswordSheetState extends State<ChangePasswordSheet> {
-  GlobalKey<FormState> _form = GlobalKey<FormState>();
+  GlobalKey<FormState> _form;
   TextEditingController _password;
   FocusNode confirmPasswordNode;
-  bool registering = false;
+  bool registering;
+  @override
+  void initState() {
+    super.initState();
+    _form = GlobalKey<FormState>();
+    _password = TextEditingController();
+    confirmPasswordNode = FocusNode();
+    registering = false;
+  }
+
   final borderStyle = OutlineInputBorder(
     borderSide: BorderSide(color: Colors.white),
     borderRadius: const BorderRadius.all(
@@ -23,7 +32,7 @@ class _ChangePasswordSheetState extends State<ChangePasswordSheet> {
 
   void _tryChanging() {
     if (_form.currentState.validate()) {
-      widget._changePassword(_password.text);
+      widget._changePassword(password: _password.text);
     }
   }
 
@@ -142,11 +151,11 @@ class _ChangePasswordSheetState extends State<ChangePasswordSheet> {
               FlatButton.icon(
                 color: Colors.white,
                 icon: Icon(
-                  FontAwesomeIcons.signOutAlt,
+                  Icons.done,
                   color: Theme.of(context).primaryColor,
                 ),
                 label: Text(
-                  'Logout',
+                  'Change Password',
                   style: TextStyle(
                     color: Theme.of(context).primaryColor,
                   ),

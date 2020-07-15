@@ -74,7 +74,6 @@ class SettingsItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(title);
     return ListTile(
       leading: iconData == null
           ? null
