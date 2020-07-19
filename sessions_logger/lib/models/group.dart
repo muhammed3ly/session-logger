@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
-import 'package:sessions_logger/models/log.dart';
+import 'package:sessions_logger/models/document.dart';
 
 class Group {
   final String id, creatorId, invitationCode;
   String groupName, photoURL, description;
   List<String> admins;
-  List<Log> logs;
+  List<Document> logs;
   Group({
     @required this.id,
     @required this.groupName,

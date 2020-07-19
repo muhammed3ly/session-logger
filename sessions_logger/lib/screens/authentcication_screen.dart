@@ -49,19 +49,16 @@ class _AuthenticationScreenState extends State<AuthenticationScreen>
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              FittedBox(
-                child: Text(
-                  'SESSIONS\nLOGGER',
-                  style: TextStyle(
-                      fontFamily: 'Century',
-                      fontWeight: FontWeight.bold,
-                      fontSize:
-                          30 * MediaQuery.of(context).textScaleFactor * 1.2,
-                      color: Colors.white),
+              Container(
+                width: MediaQuery.of(context).size.width * 0.8,
+                height: MediaQuery.of(context).size.height * 0.2,
+                child: Image.asset(
+                  'assets/images/binder.png',
+                  fit: BoxFit.fill,
                 ),
               ),
               SizedBox(
-                height: 50,
+                height: 20,
               ),
               Transform(
                 alignment: FractionalOffset.center,

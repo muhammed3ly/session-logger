@@ -29,7 +29,7 @@ dependencies:
   shared_preferences: ^0.5.7+3
   image_picker: ^0.6.7+4
   share: ^0.6.4+3
-  icon_shadow: ^1.0.1
+  flutter_page_transition: ^0.1.6
   
 dev_dependencies:
   flutter_test:
@@ -50,6 +50,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
    - assets/images/all-group-placeholder.jpg
+   - assets/images/binder.png
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

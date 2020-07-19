@@ -153,6 +153,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_page_transition:
+    dependency: "direct main"
+    description:
+      name: flutter_page_transition
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.6"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
@@ -191,13 +198,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.1.4"
-  icon_shadow:
-    dependency: "direct main"
-    description:
-      name: icon_shadow
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.1"
   image:
     dependency: transitive
     description:

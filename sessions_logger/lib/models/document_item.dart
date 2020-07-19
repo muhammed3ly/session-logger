@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class LogItem {
+class DocumentItem {
   final String id;
   String title, description, timeStamp;
   DateTime date, date2;
-  LogItem({
+  DocumentItem({
     @required this.id,
     this.title,
     this.date,

@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sessions_logger/models/user.dart';
 import 'package:sessions_logger/providers/groups_provider.dart';
 import 'package:sessions_logger/providers/preferences.dart';
 import 'package:sessions_logger/providers/screen_provider.dart';
@@ -33,19 +35,23 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   Future<void> prepareData() async {
-    final userID = Provider.of<UsersProvider>(context).user.userID;
+    final user = await FirebaseAuth.instance.currentUser();
+    final userID = user.uid;
     final userData =
         await Firestore.instance.collection('users').document(userID).get();
 
     if (userData.exists) {
-      Provider.of<UsersProvider>(context, listen: false)
+      Provider.of<UsersProvider>(context, listen: false).setUser =
+          User(user.email, userID);
+      await Provider.of<UsersProvider>(context, listen: false)
           .changeUsername(userData.data['username']);
-      Provider.of<Preferences>(context, listen: false).setAutoAcceptInvitations(
+      await Provider.of<Preferences>(context, listen: false)
+          .setAutoAcceptInvitations(
         userData.data['autoAcceptInvitations'],
         Provider.of<UsersProvider>(context, listen: false).user.userID,
         updateDB: false,
       );
-      Provider.of<Preferences>(context, listen: false).setThemePreference(
+      await Provider.of<Preferences>(context, listen: false).setThemePreference(
         (userData.data['themePreference'] == 'light')
             ? ThemePreference.Light
             : ThemePreference.Dark,

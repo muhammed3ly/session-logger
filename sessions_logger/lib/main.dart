@@ -1,11 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sessions_logger/models/user.dart';
 import 'package:sessions_logger/providers/groups_provider.dart';
 import 'package:sessions_logger/providers/preferences.dart';
 import 'package:sessions_logger/providers/screen_provider.dart';
 import 'package:sessions_logger/providers/users_provider.dart';
+import 'package:sessions_logger/screens/add_document_screen.dart';
 import 'package:sessions_logger/screens/authentcication_screen.dart';
 import 'package:sessions_logger/screens/create_group_screen.dart';
 import 'package:sessions_logger/screens/group_screen.dart';
@@ -65,9 +65,6 @@ class MyApp extends StatelessWidget {
                       return SplashScreen();
                     }
                     if (userSnapShot.hasData) {
-                      Provider.of<UsersProvider>(context, listen: false)
-                              .setUser =
-                          User(userSnapShot.data.email, userSnapShot.data.uid);
                       return MainScreen();
                     } else {
                       return AuthenticationScreen();
@@ -79,6 +76,7 @@ class MyApp extends StatelessWidget {
             SplashScreen.routeName: (ctx) => SplashScreen(),
             CreateGroupScreen.routeName: (ctx) => CreateGroupScreen(),
             GroupScreen.routeName: (ctx) => GroupScreen(),
+            AddDocumentScreen.routeName: (ctx) => AddDocumentScreen(),
           },
         ),
       ),
